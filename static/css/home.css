@@ -1,0 +1,19 @@
+.nav-li-item{
+	display: inline-block;	
+	margin: 0.4em 1% 0.4em 1%;
+	padding: 0.5em;
+	position: relative;
+}
+span{color: #e6e6e6;}
+.nav-cross-menu{
+	font-size: smaller;
+	background-color: #333;	
+}
+.nav-stand-menu{
+	display: none;
+	margin: auto;
+	color: white;
+	background-color: #333;
+	text-align: center;
+}
+
