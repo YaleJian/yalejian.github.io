@@ -1,2 +1,2 @@
-# yalejian.github.io
-Homepage
+# ssmg
+这是我的一个学习项目

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree</title>
+    <script rel="script" src="../language/message_en-US.js"></script>
+    <script rel="script" src="../yale.js"></script>
+    <script rel="script" src="../../js/jquery-3.2.0.js"></script>
+    <script rel="script" src="../../js/jquery.jsonp.js"></script>
+    <link rel="stylesheet" href="../../framework/font-awesome-4.7.0/css/font-awesome.css"/>
+    <style type="text/css">
+        li{
+            display: block;
+        }
+        .node-content {
+            border: 1px solid #cccccc;
+            margin: -1px;
+        }
+
+        .node-content:hover {
+            background: #f3f3f3;
+        }
+
+        .expandIcon {
+            width: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="tree"></div>
+<!--节点模板-->
+<div id="nodeTemp" style="display: none">
+    <li class="node" id="node_{id}" nodeId="{id}">
+        <div class="node-content">
+            <span class="expandIcon {expandIcon}" nodeId="{id}"></span>
+            <input type="checkbox" id="checkbox_{id}" nodeId="{id}" parentId="{parentId}"/>
+            <span id="nodeName_{id}" nodeId="{id}">{nodeName}</span>
+        </div>
+        <div id="child_{id}" nodeId="{id}" style="display: none"></div>
+    </li>
+</div>
+</body>
+<script>
+
+    /* var data =[];
+     for(var i = 10000; i--;){
+     var obj = new Object();
+     obj.id = i;
+     obj.parentId = Math.floor(Math.random()*10);
+     obj.text = "目录"+i;
+     data.push(obj);
+     }*/
+
+    //    var data = [{"id":"1","state":"department","text":"newtest","duty":null,"parentid":"0","iconImg":null,"haschild":true},{"id":"2920679221835756","state":"department","text":"全员关注01","duty":null,"parentid":"1","iconImg":null,"haschild":true},{"id":"54452","state":"department","text":"南京研发部","duty":null,"parentid":"1","iconImg":null,"haschild":true},{"id":"54441","state":"department","text":"z1","duty":null,"parentid":"2920679221835756","iconImg":null,"haschild":true},{"id":"54453","state":"department","text":"wlzTest","duty":null,"parentid":"1","iconImg":null,"haschild":true},{"id":"54443","state":"department","text":"z2","duty":null,"parentid":"2920679221835756","iconImg":null,"haschild":false},{"id":"54442","state":"department","text":"zz1","duty":null,"parentid":"54441","iconImg":null,"haschild":true},{"id":"54444","state":"department","text":"zzz1","duty":null,"parentid":"54442","iconImg":null,"haschild":false},{"id":"54454","state":"department","text":"wlz01","duty":null,"parentid":"54452","iconImg":null,"haschild":false}];
+
+    var data = [
+
+        {
+            id: 9,
+            parentId: 3,
+            text: "白色连衣裙"
+        },
+        {
+            id: 3,
+            parentId: 2,
+            text: "连衣裙"
+        },
+        {
+            id: 4,
+            parentId: 1,
+            text: "水果"
+        },
+        {
+            id: 6,
+            parentId: 1,
+            text: "电脑"
+        },
+        {
+            id: 2,
+            parentId: 1,
+            text: "衣服"
+        },
+        {
+            id: 7,
+            parentId: 3,
+            text: "黄色连衣裙"
+        },
+        {
+            id: 1,
+            parentId: 0,
+            text: "商品"
+        },
+        {
+            id: 5,
+            parentId: 2,
+            text: "外套"
+        }, {
+            id: 8,
+            parentId: 3,
+            text: "灰色连衣裙"
+        },
+        {
+            id: 14,
+            parentId: 4,
+            text: "香蕉"
+        },
+        {
+            id: 10,
+            parentId: 5,
+            text: "风衣外套"
+        },
+        {
+            id: 11,
+            parentId: 3,
+            text: "黑色连衣裙"
+        },
+        {
+            id: 12,
+            parentId: 4,
+            text: "桔子"
+        },
+        {
+            id: 13,
+            parentId: 5,
+            text: "紧身外套"
+        },
+        {
+            id: 19,
+            parentId: 2,
+            text: "裤子"
+        },
+        {
+            id: 15,
+            parentId: 2,
+            text: "帽子"
+        },
+        {
+            id: 16,
+            parentId: 4,
+            text: "苹果"
+        },
+        {
+            id: 17,
+            parentId: 6,
+            text: "笔记本"
+        },
+        {
+            id: 18,
+            parentId: 6,
+            text: "平板电脑"
+        },
+
+
+    ];
+
+
+    yale.tree.param = {
+        consoleON: true,
+        data: data,
+        tree: $(".tree"),
+        nodeTemplate: $("#nodeTemp")[0],
+        expandIcon: ["fa fa-angle-right", "fa fa-angle-down"]
+    };
+    yale.tree.createTree();
+
+
+</script>
+
+</html>
