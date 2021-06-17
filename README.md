@@ -1,2 +1,2 @@
-# ssmg
-这是我的一个学习项目
+# yalejian.github.io
+首页项目
